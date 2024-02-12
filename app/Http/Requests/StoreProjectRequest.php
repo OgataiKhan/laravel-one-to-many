@@ -27,6 +27,7 @@ class StoreProjectRequest extends FormRequest
             'technologies' => ['required', 'string', 'max:248'],
             'url' => ['nullable', 'url'],
             'image_url' => ['nullable', 'url'],
+            'type_id' => ['nullable'],
         ];
     }
 }

@@ -31,6 +31,15 @@
                 <label for="url">Project URL</label>
                 <input type="url" class="form-control" id="url" name="url" value="{{ old('url') }}">
             </div>
+            <div class="mb-3">
+                <label for="type_id">Type</label>
+                <select id="type_id" name="type_id" class="form-select">
+                    <option selected>Select type...</option>
+                    @foreach ($types as $type)
+                        <option value="{{ $type->id }}">{{ $type->title }}</option>
+                    @endforeach
+                </select>
+            </div> 
             <div class="form-group mb-3">
                 <label for="image_url">Image URL</label>
                 <input type="text" class="form-control" id="image_url" name="image_url" value="{{ old('image_url') }}">
