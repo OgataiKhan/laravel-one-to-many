@@ -20,7 +20,7 @@
             </div>
             <div class="form-group mb-3">
                 <label for="description">Description</label>
-                <textarea class="form-control" id="description" name="description" rows="3" value="{{ old('description') }}"></textarea>
+                <textarea class="form-control" id="description" name="description" rows="3">{{ old('description') }}</textarea>
             </div>
             <div class="form-group mb-3">
                 <label for="technologies">Technologies</label>
@@ -36,10 +36,11 @@
                 <select id="type_id" name="type_id" class="form-select">
                     <option selected>Select type...</option>
                     @foreach ($types as $type)
-                        <option value="{{ $type->id }}">{{ $type->title }}</option>
+                        <option value="{{ $type->id }}" @if (old('type_id') == $type->id) selected @endif>{{ $type->title }}
+                        </option>
                     @endforeach
                 </select>
-            </div> 
+            </div>
             <div class="form-group mb-3">
                 <label for="image_url">Image URL</label>
                 <input type="text" class="form-control" id="image_url" name="image_url" value="{{ old('image_url') }}">
