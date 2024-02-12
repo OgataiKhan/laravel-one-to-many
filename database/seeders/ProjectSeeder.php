@@ -21,6 +21,7 @@ class ProjectSeeder extends Seeder
                 'technologies' => 'Laravel, Vue.js, Bootstrap',
                 'url' => 'https://exampleportfolio.com',
                 'image_url' => 'https://example.com/images/portfolio1.jpg',
+                'type_id' => 3,
             ],
             [
                 'title' => 'E-commerce Platform',
@@ -28,6 +29,7 @@ class ProjectSeeder extends Seeder
                 'technologies' => 'Laravel, Bootstrap, MySQL',
                 'url' => 'https://exampleshop.com',
                 'image_url' => 'https://example.com/images/shop.jpg',
+                'type_id' => 3,
             ],
             [
                 'title' => 'Task Management System',
@@ -35,12 +37,16 @@ class ProjectSeeder extends Seeder
                 'technologies' => 'Laravel, Vue.js',
                 'url' => 'https://exampletasks.com',
                 'image_url' => 'https://example.com/images/tasks.jpg',  
+                'type_id' => 3,
             ],
         ];
+
+        Project::truncate();
 
         foreach ($projects as $projectData) {
             $project = new Project();
             $project->title = $projectData['title'];
+            $project->type_id = $projectData['type_id'];
             $project->description = $projectData['description'];
             $project->technologies = $projectData['technologies'];
             $project->url = $projectData['url'];
