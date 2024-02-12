@@ -9,12 +9,11 @@ class Project extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'title',
-        'description',
-        'technologies',
-        'url',
-        'image_url',
+    protected $guarded = [
         'slug',
     ];
+
+    public function type() {
+        return $this->belongsTo(Type::class);
+    }
 }
